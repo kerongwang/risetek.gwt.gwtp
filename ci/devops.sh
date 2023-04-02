@@ -51,7 +51,7 @@ scp $DOCKER_PATH/docker-compose.yml \
 
 ## Build project
 mvn clean package
-scp $CI_PATH/../server/target/risetek.usbtools-server-1.0-SNAPSHOT.war $REMOTE_HOST:$BUILD_DIR/docker/ROOT.war
+scp $CI_PATH/../server/target/risetek.gwt.gwtp-server-1.0-SNAPSHOT.war $REMOTE_HOST:$BUILD_DIR/docker/ROOT.war
 
 ## Build new Docker
 echo -e "\033[32mBuild docker image on remote host.\033[0m"
