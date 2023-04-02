@@ -1,0 +1,46 @@
+@external search-result;
+@def CELLWIDTH 160px;
+@def MAX_WIDTH mult(CELLWIDTH, 5);
+@def MIN_WIDTH mult(CELLWIDTH, 4);
+
+.container {width: 100%; height: 100%; box-sizing: border-box; position: fixed;}
+.infinitycard-container {z-index: 100; display: block; overflow-y: hidden; position: relative; height: 100%; margin: 2px 0; }
+
+.card-container {
+max-width: MAX_WIDTH;
+margin: 0 auto;
+padding: 10px 0px;
+display: block;
+box-sizing:border-box;
+}
+
+.card-body {
+display: inline-flex;
+width: 100%;
+border-radius: 3px;
+margin: 0px;
+padding: 0px;
+background-color: transparent;
+cursor: pointer;
+}
+
+.card-content {
+margin: 0px;
+padding: 10px;
+width: 100%;
+height: 100%;
+display: inline-flex;
+}
+
+.card-block-content {
+margin: 0px;
+padding: 10px;
+display: block;
+width: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+ .card-body { min-width: MIN_WIDTH; }
+ .card-note { width: 100%; }
+ .card-content { display: block; }
+}
