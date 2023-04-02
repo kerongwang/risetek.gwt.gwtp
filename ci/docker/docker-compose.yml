@@ -1,0 +1,18 @@
+version: '2'
+
+networks:
+  network.risetek.usbtools:
+
+services:
+ yun74.tools:
+  container_name: ${PROJECT_NAME}
+  image: ${DOCKER_IMAGE_PREFIX}/${PROJECT_NAME}
+  restart: always
+  ports:
+   - "19000:8080/tcp"
+   - "19443:8443/tcp"
+  volumes:
+   - $WORKSPACE/.database:/.database
+   - $WORKSPACE/config:/config
+  networks:
+   - network.risetek.usbtools
