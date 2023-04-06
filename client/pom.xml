@@ -11,6 +11,20 @@
   <artifactId>risetek.gwt.gwtp-client</artifactId>
   <packaging>gwt-app</packaging>
 
+  <repositories>
+    <repository>
+        <id>github</id>
+        <name>Github Packages</name>
+        <url>https://maven.pkg.github.com/kerongwang/yun74.gwt.icons</url>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </repository>
+  </repositories>
+
   <properties>
     <gwt-material.version>2.6.1</gwt-material.version>
     <eclipse-jgit.version>5.10.0.202012080955-r</eclipse-jgit.version>
@@ -81,6 +95,12 @@
    <dependency>
     <groupId>org.slf4j</groupId>
     <artifactId>slf4j-simple</artifactId>
+   </dependency>
+   <dependency>
+    <groupId>yun74.gwt</groupId>
+    <artifactId>yun74.gwt.icons</artifactId>
+    <version>1.0</version>
+    <type>gwt-lib</type>
    </dependency>
   </dependencies>
 

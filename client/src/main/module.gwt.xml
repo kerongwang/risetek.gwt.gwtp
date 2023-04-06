@@ -10,6 +10,7 @@
   <set-property name="gwt.logging.consoleHandler" value="ENABLED" />
   <set-property name="gwt.logging.developmentModeHandler" value="ENABLED" />
   <set-property name="gwt.logging.systemHandler" value="DISABLED" />    
+  <inherits name="yun74.gwt.GWTIcons" />
 
   <set-configuration-property name="CssResource.enableGss" value="true" />
   <set-configuration-property name="CssResource.conversionMode" value="strict" />
