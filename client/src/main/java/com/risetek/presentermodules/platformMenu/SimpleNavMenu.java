@@ -21,6 +21,7 @@ import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 import com.risetek.bindery.IBuilderStamp;
 import com.risetek.bindery.PlainMenuLoader;
 import com.risetek.bindery.PlainMenuLoader.PlainMenuContent;
+import yun74.gwt.icons.Yun74Icons;
 
 @Singleton
 public class SimpleNavMenu extends AbstractDockMenu {
@@ -50,7 +51,7 @@ public class SimpleNavMenu extends AbstractDockMenu {
 				chooserPanel.add(navBarContainer);
 			}
 				
-			Panel panel = new MenuItem(menu.title, menu.token, menu.icon == null ? null : menu.icon.getElement(), c->{getUiHandlers().gotoPlace(c);});
+			Panel panel = new MenuItem(menu, c->getUiHandlers().gotoPlace(c));
 			navBarContainer.add(panel);
 		}
 	}
@@ -92,18 +93,20 @@ public class SimpleNavMenu extends AbstractDockMenu {
 	    @UiField DivElement iconContainer;
 	    @UiField Label title;
 
-		public MenuItem(@NotNull String name, @NotNull String token, Element icon, @NotNull Consumer<String> consumer) {
+	    public MenuItem(PlainMenuContent menu, Consumer<String> consumer) {
 			add(binder.createAndBindUi(this));
-			
-			if(null != icon)
-				iconContainer.appendChild(icon);
+			if(null != menu.iconName) {
+				iconContainer.appendChild(Yun74Icons.getElement(menu.iconName));
+			}
+			else if(null != menu.icon)
+				iconContainer.appendChild(menu.icon.getElement());
 
-			title.setText(name);
+			title.setText(menu.title);
 
-			if(null == token)
-				addClickHandler(c->{consumer.accept(name);});
+			if(null == menu.token)
+				addClickHandler(c->{consumer.accept(menu.title);});
 			else
-				addClickHandler(c->{consumer.accept(token);});
+				addClickHandler(c->{consumer.accept(menu.token);});
 		}
 	}
 }

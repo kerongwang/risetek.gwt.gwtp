@@ -18,6 +18,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.UiHandlers;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 import com.risetek.utils.Icons;
+import yun74.gwt.icons.Yun74Icons;
 
 public class BaseHomeCardView<Ui extends UiHandlers> extends ViewWithUiHandlers<Ui> implements IHomeCardView {
 
@@ -126,6 +127,13 @@ public class BaseHomeCardView<Ui extends UiHandlers> extends ViewWithUiHandlers<
 		return this;
 	}
 	
+	public BaseHomeCardView<Ui> setTitle(String title, String iconName) {
+		headLabel.setInnerHTML(title);
+		iconPanel.appendChild(Yun74Icons.getElement(iconName));
+
+		return this;
+	}
+
 	public BaseHomeCardView<Ui> setTitle(String title, Widget icon) {
 		return setTitle(title, icon.getElement());
 	}

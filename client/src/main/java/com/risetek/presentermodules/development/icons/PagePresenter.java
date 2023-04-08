@@ -23,6 +23,7 @@ import com.risetek.utils.Icons.Convert;
 import com.risetek.utils.Icons.Home;
 import com.risetek.utils.Icons.Login;
 import com.risetek.utils.Icons.Modify;
+import yun74.gwt.icons.Yun74Icons;
 
 @PlainMenu(order = 1000, title = "\u5f00\u53d1\u8005\u4e50\u56ed", token = TokenNames.icons, iconClass = Icons.Convert.class)
 public class PagePresenter extends Presenter<PagePresenter.MyView, PagePresenter.MyProxy> implements MyUiHandlers {
@@ -47,6 +48,8 @@ public class PagePresenter extends Presenter<PagePresenter.MyView, PagePresenter
 		super(eventBus, view, proxy, RootPresenter.SLOT_MainContent);
 		this.placeManager = placeManager;
 		getView().setUiHandlers(this);
+
+		Yun74Icons.dump((n, w) -> getView().append(n, w));
 
 		getView().append(new ArrowRight());
 		getView().append("ArrowLeft", new ArrowLeft());
